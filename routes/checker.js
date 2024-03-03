@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const UserWl = require("../models/userwl");
+const User = require("../models/userwl");
 const cleanBody = require("../middlewares/cleanBody");
 
 router.get("/:wallet", cleanBody, async (req, res) => {
@@ -19,7 +19,9 @@ router.get("/:wallet", cleanBody, async (req, res) => {
     }
 
     //1. Find if any account with that email exists in DB
-    const user = await UserWl.findOne({ wallets: wallet });
+    const user = await User.find({ wallets: wallet });
+
+    console.log ("user", user)
 
     // NOT FOUND - Throw error
     if (user) {
