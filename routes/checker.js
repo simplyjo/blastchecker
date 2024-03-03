@@ -27,7 +27,7 @@ router.get("/:wallet", cleanBody, async (req, res) => {
     if (user) {
       return res.send({
         success: true,
-        message: "Congratulations! You are on the blastlist!!",
+        message: "Congratulations! You're on the blastlist!!",
       });
     }
 
